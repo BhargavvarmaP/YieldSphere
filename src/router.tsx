@@ -1,48 +1,85 @@
-import { createBrowserRouter, Outlet } from 'react-router-dom';
-import App from './App';
-import { BiometricAuth } from './components/innovative/BiometricAuth';
-import { MultiFactorAuth } from './components/innovative/MultiFactorAuth';
-import { SocialRecovery } from './components/innovative/SocialRecovery';
-import { WalletConnect } from './components/innovative/WalletConnect';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { Layout } from './components/layout/Layout';
 import { AuthGuard } from './components/AuthGuard';
 import { Login } from './components/Login';
 import { NotFound } from './pages/NotFound';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
+import { Analytics } from './pages/Analytics';
+import { Settings } from './pages/Settings';
+import { InnovativeStrategies } from './pages/InnovativeStrategies';
+import Portfolio from './pages/Portfolio';
+import RiskAssessment from './pages/RiskAssessment';
+import MarketOverview from './pages/MarketOverview';
+import Documentation from './pages/Documentation';
+import HelpSupport from './pages/HelpSupport';
+import InvestmentStrategies from './pages/InvestmentStrategies';
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Layout />,
     errorElement: <NotFound />,
     children: [
+      {
+        index: true,
+        element: <Navigate to="/dashboard" replace />,
+      },
       {
         path: 'login',
         element: <Login />,
       },
       {
-        path: 'profile',
-        element: <Profile />,
+        path: '*',
+        element: <NotFound />,
       },
+      // Protected Routes
       {
-        path: 'auth',
-        element: <AuthGuard><Outlet /></AuthGuard>,
+        element: <AuthGuard />,
         children: [
           {
-            path: 'biometric',
-            element: <BiometricAuth />,
+            path: 'dashboard',
+            element: <Dashboard />,
           },
           {
-            path: 'mfa',
-            element: <MultiFactorAuth />,
+            path: 'profile',
+            element: <Profile />,
           },
           {
-            path: 'social-recovery',
-            element: <SocialRecovery />,
+            path: 'analytics',
+            element: <Analytics />,
           },
           {
-            path: 'wallet',
-            element: <WalletConnect />,
+            path: 'settings',
+            element: <Settings />,
+          },
+          {
+            path: 'portfolio',
+            element: <Portfolio />,
+          },
+          {
+            path: 'risk-assessment',
+            element: <RiskAssessment />,
+          },
+          {
+            path: 'market',
+            element: <MarketOverview />,
+          },
+          {
+            path: 'strategies',
+            element: <InvestmentStrategies />,
+          },
+          {
+            path: 'innovative-strategies',
+            element: <InnovativeStrategies />,
+          },
+          {
+            path: 'documentation',
+            element: <Documentation />,
+          },
+          {
+            path: 'help',
+            element: <HelpSupport />,
           },
         ],
       },

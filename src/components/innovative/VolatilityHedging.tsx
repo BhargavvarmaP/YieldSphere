@@ -11,19 +11,19 @@ import {
   TrendingUp,
   LineChart
 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Button } from '../ui/button';
+import { Progress } from '../ui/progress';
 import { 
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Slider } from '@/components/ui/slider';
+} from '../ui/dialog';
+import { Input } from '../ui/input';
+import { Alert, AlertDescription } from '../ui/alert';
+import { Slider } from '../ui/slider';
 
 interface HedgingStrategy {
   name: string;

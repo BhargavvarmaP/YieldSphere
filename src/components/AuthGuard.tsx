@@ -1,33 +1,23 @@
 import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
+import { Navigate, useLocation, Outlet } from 'react-router-dom';
+import { usePrivy } from '@privy-io/react-auth';
 import { LoadingSpinner } from './LoadingSpinner';
-import { motion } from 'framer-motion';
 
-interface AuthGuardProps {
-  children: React.ReactNode;
-}
-
-export const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
-  const { authenticated, ready, handleLogin } = useAuth();
+export const AuthGuard: React.FC = () => {
+  const { authenticated, ready } = usePrivy();
   const location = useLocation();
 
   if (!ready) {
-    return <LoadingSpinner />;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <LoadingSpinner size="large" />
+      </div>
+    );
   }
 
   if (!authenticated) {
-    // Redirect to login page with return url
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <Outlet />;
 };

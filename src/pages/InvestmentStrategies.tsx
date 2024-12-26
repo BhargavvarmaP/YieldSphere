@@ -5,15 +5,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { 
-  TrendingUp, 
-  Target, 
-  DollarSign, 
+import {
+  TrendingUp,
+  Target,
+  DollarSign,
   Clock,
   Shield,
   BarChart2,
   Zap,
-  Rocket
+  Rocket,
 } from 'lucide-react';
 
 const InvestmentStrategies = () => {
@@ -32,7 +32,7 @@ const InvestmentStrategies = () => {
       ],
       expectedReturn: '5-8%',
       riskLevel: 'Low',
-      color: 'bg-blue-500'
+      color: 'bg-blue-500',
     },
     {
       title: 'Balanced',
@@ -46,7 +46,7 @@ const InvestmentStrategies = () => {
       ],
       expectedReturn: '8-12%',
       riskLevel: 'Medium',
-      color: 'bg-green-500'
+      color: 'bg-green-500',
     },
     {
       title: 'Growth',
@@ -60,7 +60,7 @@ const InvestmentStrategies = () => {
       ],
       expectedReturn: '12-15%',
       riskLevel: 'High',
-      color: 'bg-purple-500'
+      color: 'bg-purple-500',
     },
     {
       title: 'Aggressive',
@@ -74,7 +74,7 @@ const InvestmentStrategies = () => {
       ],
       expectedReturn: '15%+',
       riskLevel: 'Very High',
-      color: 'bg-red-500'
+      color: 'bg-red-500',
     },
   ];
 
@@ -84,28 +84,28 @@ const InvestmentStrategies = () => {
       value: 12.5,
       suffix: '%',
       icon: <Target className="w-6 h-6" />,
-      color: 'bg-blue-500'
+      color: 'bg-blue-500',
     },
     {
       title: 'Current Return',
       value: 10.8,
       suffix: '%',
       icon: <TrendingUp className="w-6 h-6" />,
-      color: 'bg-green-500'
+      color: 'bg-green-500',
     },
     {
       title: 'AUM',
       value: 1250000,
       prefix: '$',
       icon: <DollarSign className="w-6 h-6" />,
-      color: 'bg-purple-500'
+      color: 'bg-purple-500',
     },
     {
       title: 'Avg Hold Time',
       value: 145,
       suffix: ' days',
       icon: <Clock className="w-6 h-6" />,
-      color: 'bg-orange-500'
+      color: 'bg-orange-500',
     },
   ];
 
@@ -116,7 +116,7 @@ const InvestmentStrategies = () => {
         opacity: 0,
         duration: 0.8,
         stagger: 0.2,
-        ease: 'power3.out'
+        ease: 'power3.out',
       });
     }, chartRef);
 
@@ -124,7 +124,10 @@ const InvestmentStrategies = () => {
   }, []);
 
   return (
-    <div ref={chartRef} className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6 space-y-6">
+    <div
+      ref={chartRef}
+      className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6 space-y-6"
+    >
       {/* Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {metrics.map((metric) => (
@@ -132,7 +135,7 @@ const InvestmentStrategies = () => {
             key={metric.title}
             className="metric-card"
             whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            transition={{ type: 'spring', stiffness: 300 }}
           >
             <Card className="backdrop-blur-lg bg-white/10 border-none shadow-xl">
               <CardContent className="p-6">
@@ -172,7 +175,9 @@ const InvestmentStrategies = () => {
                     <div className={`p-2 rounded-lg ${strategy.color}`}>
                       {strategy.icon}
                     </div>
-                    <CardTitle className="text-white">{strategy.title}</CardTitle>
+                    <CardTitle className="text-white">
+                      {strategy.title}
+                    </CardTitle>
                   </div>
                   <Badge variant="outline" className="text-white">
                     {strategy.riskLevel}
@@ -194,7 +199,9 @@ const InvestmentStrategies = () => {
                   <div className="pt-4">
                     <div className="flex justify-between text-sm mb-4">
                       <span className="text-gray-400">Expected Return</span>
-                      <span className="text-white">{strategy.expectedReturn}</span>
+                      <span className="text-white">
+                        {strategy.expectedReturn}
+                      </span>
                     </div>
                     <Button className={`w-full ${strategy.color}`}>
                       Apply Strategy

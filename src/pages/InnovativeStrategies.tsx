@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ThematicPool } from '../components/innovative/ThematicPool';
+import  ThematicPool  from '../components/innovative/ThematicPool';
 import { DynamicYieldFund } from '../components/innovative/DynamicYieldFund';
 import { OptionsStrategies } from '../components/innovative/OptionsStrategies';
 import { SocialTrading } from '../components/innovative/SocialTrading';
 import { MultiChainIndex } from '../components/innovative/MultiChainIndex';
 import { RealWorldAssets } from '../components/innovative/RealWorldAssets';
-import { VolatilityHedging } from '../components/innovative/VolatilityHedging';
-import { DecentralizedBonds } from '../components/innovative/DecentralizedBonds';
+import  VolatilityHedging  from '../components/innovative/VolatilityHedging';
+import  DecentralizedBonds  from '../components/innovative/DecentralizedBonds';
 import { ESGIndex } from '../components/innovative/ESGIndex';
 
 export function InnovativeStrategies() {
